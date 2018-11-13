@@ -1,0 +1,51 @@
+{
+  "spring_boot": {
+    "title": "Spring Boot log format",
+    "description": "Log format used by Spring Boot",
+    "url": "",
+    "regex": {
+      "tasko": {
+        "pattern": "^(?<timestamp>\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}.\\d{3})\\s+(?<alert_level>\\w+)\\s+(?<pid>\\d+)\\s+---\\s+\\[\\s*(?<thread>.*)\\]\\s+(?<class>.*)\\s+:\\s+(?<body>.*)$"
+      }
+    },
+    "level-field": "alert_level",
+    "level": {
+      "error": "ERROR",
+      "warning": "WARN",
+      "debug": "DEBUG",
+      "info": "INFO"
+    },
+    "value": {
+      "thread": {
+        "kind": "string",
+        "identifier": true
+      },
+      "pid": {
+        "kind": "string",
+        "identifier": true
+      },
+      "alert_level": {
+        "kind": "string",
+        "identifier": true
+      },
+      "class": {
+        "kind": "string",
+        "identifier": true
+      },
+      "body": {
+        "kind": "string"
+      }
+    },
+    "sample": [
+      {
+        "line": "2018-04-17 23:13:44.495 DEBUG 27430 --- [XNIO-2 task-16] com.binbit.core.service.CoreService      : ApiCoreGeneric(mccMnc=21901, serviceId=null, msisdn=385996823753, active=true, nextBillDate=null, credits=null)"
+      },
+      {
+        "line": "2018-04-17 23:13:44.495 DEBUG 27430 --- [XNIO-2 task-16] c.b.apicore.service.ApiCoreServiceImpl   :  >> info() ApiCoreGeneric(mccMnc=21901, serviceId=null, msisdn=385996823753, active=true, nextBillDate=null, credits=null)"
+      },
+      {
+        "line": "2018-04-17 23:13:44.597  WARN 27430 --- [XNIO-2 task-16] c.b.m.h.t.s.TMobileSubscriptionService   : unknown msisdn '385996823753'"
+      }
+    ]
+  }
+}
