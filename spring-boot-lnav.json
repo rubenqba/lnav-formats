@@ -1,4 +1,5 @@
 {
+  "$schema": "https://lnav.org/schemas/format-v1.schema.json",
   "spring_boot": {
     "title": "Spring Boot log format",
     "description": "Log format used by Spring Boot",
